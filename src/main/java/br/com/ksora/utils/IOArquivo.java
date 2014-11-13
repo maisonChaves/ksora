@@ -1,4 +1,4 @@
-package br.com.gec.utils;
+package br.com.ksora.utils;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

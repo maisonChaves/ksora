@@ -1,6 +1,6 @@
-package br.com.gec.anotacao;
+package br.com.ksora.anotacao;
 
-import br.com.gec.enuns.Perfil;
+import br.com.ksora.enuns.Perfil;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

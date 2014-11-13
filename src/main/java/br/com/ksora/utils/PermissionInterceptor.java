@@ -1,4 +1,4 @@
-package br.com.gec.utils;
+package br.com.ksora.utils;
 
 import br.com.caelum.vraptor.Accepts;
 import br.com.caelum.vraptor.AroundCall;
@@ -6,15 +6,15 @@ import br.com.caelum.vraptor.Intercepts;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.controller.ControllerMethod;
 import br.com.caelum.vraptor.core.InterceptorStack;
-import br.com.caelum.vraptor.interceptor.Interceptor;
-
 import static br.com.caelum.vraptor.view.Results.http;
-import br.com.gec.anotacao.Permissao;
-import br.com.gec.anotacao.Public;
-import br.com.gec.enuns.Perfil;
-import br.com.gec.objeto.Usuario;
+import br.com.ksora.anotacao.Permissao;
+import br.com.ksora.anotacao.Public;
+import br.com.ksora.enuns.Perfil;
+import br.com.ksora.objeto.Usuario;
+
 import java.util.Arrays;
 import java.util.Collection;
+import javax.inject.Inject;
 
 /**
  *
@@ -24,11 +24,16 @@ import java.util.Collection;
 public class PermissionInterceptor {
 
     private final Result result;
-    private final Sessao sessao;
+    @Inject
+    private Sessao sessao;
 
-    public PermissionInterceptor(Sessao sessao, Result result) {
+    public PermissionInterceptor(Result result) {
         this.result = result;
-        this.sessao = sessao;
+    }
+
+    protected PermissionInterceptor() {
+        this(null);
+
     }
 
     @Accepts

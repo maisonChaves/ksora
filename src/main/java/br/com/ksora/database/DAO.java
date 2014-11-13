@@ -1,11 +1,12 @@
-package br.com.gec.database;
+package br.com.ksora.database;
 
-import br.com.gec.objeto.Arquivo;
-import br.com.gec.objeto.Projeto;
-import br.com.gec.objeto.Usuario;
+import br.com.ksora.objeto.Arquivo;
+import br.com.ksora.objeto.Projeto;
+import br.com.ksora.objeto.Usuario;
 import java.io.Serializable;
 import java.util.List;
 import javax.enterprise.context.SessionScoped;
+import javax.inject.Inject;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
@@ -18,11 +19,8 @@ import org.hibernate.criterion.Restrictions;
 @SessionScoped
 public class DAO implements Serializable {
 
-    private final Session session;
-
-    public DAO(Session session) {
-        this.session = session;
-    }
+    @Inject
+    private Session session;    
 
     public void salvar(Object objeto) {
         Transaction tx = session.beginTransaction();

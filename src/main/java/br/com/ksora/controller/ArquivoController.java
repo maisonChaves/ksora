@@ -2,13 +2,13 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.gec.controller;
+package br.com.ksora.controller;
 
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.view.Results;
-import br.com.gec.database.DAO;
-import br.com.gec.objeto.Projeto;
+import br.com.ksora.database.DAO;
+import br.com.ksora.objeto.Projeto;
 import org.hibernate.Session;
 
 /**

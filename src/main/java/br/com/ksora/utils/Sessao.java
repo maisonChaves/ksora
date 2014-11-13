@@ -1,7 +1,7 @@
-package br.com.gec.utils;
+package br.com.ksora.utils;
 
 
-import br.com.gec.objeto.Usuario;
+import br.com.ksora.objeto.Usuario;
 import java.io.Serializable;
 import javax.enterprise.context.SessionScoped;
 

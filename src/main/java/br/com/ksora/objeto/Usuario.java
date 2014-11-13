@@ -1,6 +1,6 @@
-package br.com.gec.objeto;
+package br.com.ksora.objeto;
 
-import br.com.gec.enuns.Perfil;
+import br.com.ksora.enuns.Perfil;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;

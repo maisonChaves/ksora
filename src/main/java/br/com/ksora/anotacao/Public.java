@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.gec.anotacao;
+package br.com.ksora.anotacao;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
