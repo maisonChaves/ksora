@@ -6,6 +6,7 @@ import br.com.caelum.vraptor.Result;
 import javax.enterprise.context.RequestScoped;
 import br.com.ksora.anotacao.Public;
 import br.com.ksora.database.DAO;
+import br.com.ksora.enuns.Perfil;
 import br.com.ksora.objeto.Projeto;
 import br.com.ksora.utils.Sessao;
 import java.util.ArrayList;
@@ -40,6 +41,8 @@ public class IndexController {
     @Path("/index")
     @Public
     public void index() {
+      
+        
 //        List<Projeto> listaProjetos = new ArrayList<>();
 //        listaProjetos = dao.buscaListaProjetos();
 //        return listaProjetos;

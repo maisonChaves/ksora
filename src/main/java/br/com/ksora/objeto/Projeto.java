@@ -7,10 +7,13 @@ package br.com.ksora.objeto;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 
 /**
@@ -26,9 +29,12 @@ public class Projeto implements Serializable {
     private String nome;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dataInicio;
-    private Integer qtdArquivos;
+    @OneToMany(mappedBy = "projeto")
+    private List<Arquivo> arquivos;
     @ManyToOne
-    private Usuario usuario;
+    private Usuario gerente;
+    @ManyToMany(mappedBy = "projetosColaborados")
+    private List<Usuario> colaborador;   
 
     public Integer getId() {
         return id;
@@ -54,20 +60,28 @@ public class Projeto implements Serializable {
         this.dataInicio = dataInicio;
     }
 
-    public Integer getQtdArquivos() {
-        return qtdArquivos;
+    public List<Arquivo> getArquivos() {
+        return arquivos;
     }
 
-    public void setQtdArquivos(Integer qtdArquivos) {
-        this.qtdArquivos = qtdArquivos;
+    public void setArquivos(List<Arquivo> arquivos) {
+        this.arquivos = arquivos;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public Usuario getGerente() {
+        return gerente;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setGerente(Usuario gerente) {
+        this.gerente = gerente;
     }
 
+    public List<Usuario> getColaborador() {
+        return colaborador;
+    }
+
+    public void setColaborador(List<Usuario> colaborador) {
+        this.colaborador = colaborador;
+    }
+    
 }

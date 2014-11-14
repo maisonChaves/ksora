@@ -3,7 +3,7 @@
     <nav class="navigation-bar-content">  
         <span class="element-divider"></span>
         <div class="element" style="margin-left: 3%;padding-left:  5px">
-            <c:if test="${sessao.usuario.perfil eq 'ADMINISTRADOR'}">
+            <c:if test="${sessao.administrador}">
                 <a class="dropdown-toggle" href="">Usuário</a>
                 <ul class="dropdown-menu" data-role="dropdown">
                     <li><a href="<c:url value='/usuario/cadastro'/>">Cadastro</a></li>    

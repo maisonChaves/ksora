@@ -6,8 +6,11 @@ import java.util.Date;
 import java.util.List;
 import java.util.Set;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 
@@ -25,30 +28,16 @@ public class Usuario implements Serializable {
     private String email;
     private String login;
     private String senha;
-    private Perfil perfil;    
+    @Enumerated(EnumType.STRING)
+    private Perfil perfil;
     @Temporal(javax.persistence.TemporalType.DATE)
-    private Date dataCadastro;
-    private String imagem;    
-    @OneToMany(mappedBy = "usuario")
-    private Set<Arquivo> arquivos;
-    @OneToMany(mappedBy = "usuario")
-    private Set<Projeto> projetos;
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
+    private Date dataCadastro;        
+    @ManyToMany
+    private List<Arquivo> arquivos;
+    @OneToMany(mappedBy = "gerente")
+    private Set<Projeto> projetosGerenciados;
+    @ManyToMany
+    private Set<Projeto> projetosColaborados;
 
     public Integer getId() {
         return id;
@@ -74,20 +63,20 @@ public class Usuario implements Serializable {
         this.email = email;
     }
 
-    public Date getDataCadastro() {
-        return dataCadastro;
+    public String getLogin() {
+        return login;
     }
 
-    public void setDataCadastro(Date dataCadastro) {
-        this.dataCadastro = dataCadastro;
+    public void setLogin(String login) {
+        this.login = login;
     }
 
-    public String getImagem() {
-        return imagem;
+    public String getSenha() {
+        return senha;
     }
 
-    public void setImagem(String imagem) {
-        this.imagem = imagem;
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
     public Perfil getPerfil() {
@@ -98,23 +87,36 @@ public class Usuario implements Serializable {
         this.perfil = perfil;
     }
 
-    public Set<Projeto> getProjetos() {
-        return projetos;
+    public Date getDataCadastro() {
+        return dataCadastro;
     }
 
-    public void setProjetos(Set<Projeto> projetos) {
-        this.projetos = projetos;
+    public void setDataCadastro(Date dataCadastro) {
+        this.dataCadastro = dataCadastro;
     }
 
-    public Set<Arquivo> getArquivos() {
+    public List<Arquivo> getArquivos() {
         return arquivos;
     }
 
-    public void setArquivos(Set<Arquivo> arquivos) {
+    public void setArquivos(List<Arquivo> arquivos) {
         this.arquivos = arquivos;
     }
 
- 
+    public Set<Projeto> getProjetosGerenciados() {
+        return projetosGerenciados;
+    }
 
+    public void setProjetosGerenciados(Set<Projeto> projetosGerenciados) {
+        this.projetosGerenciados = projetosGerenciados;
+    }
+
+    public Set<Projeto> getProjetosColaborados() {
+        return projetosColaborados;
+    }
+
+    public void setProjetosColaborados(Set<Projeto> projetosColaborados) {
+        this.projetosColaborados = projetosColaborados;
+    }
 
 }

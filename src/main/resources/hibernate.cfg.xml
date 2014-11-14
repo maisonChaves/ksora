@@ -12,7 +12,7 @@
         <property name="hibernate.connection.password">admin</property>
         
         
-        <property name="hibernate.connection.url">jdbc:mysql://127.0.0.1:3306/gec</property>
+        <property name="hibernate.connection.url">jdbc:mysql://127.0.0.1:3306/ksora</property>
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
@@ -20,9 +20,9 @@
         <property name="format_sql">true</property>
       
       
-        <mapping class="br.com.gec.objeto.Usuario" />
-        <mapping class="br.com.gec.objeto.Projeto" />
-        <mapping class="br.com.gec.objeto.Arquivo" />
+        <mapping class="br.com.ksora.objeto.Usuario" />
+        <mapping class="br.com.ksora.objeto.Projeto" />
+        <mapping class="br.com.ksora.objeto.Arquivo" />
       
     </session-factory>
 </hibernate-configuration>

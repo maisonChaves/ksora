@@ -7,9 +7,11 @@ package br.com.ksora.objeto;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 
@@ -25,9 +27,10 @@ public class Arquivo implements Serializable {
     private Integer id;
     private String nome;
     private String descricao;
-    private String status;
+    private String status;        
+    @ManyToMany(mappedBy = "arquivos")
+    private List<Usuario> usuario;  
     @ManyToOne
-    private Usuario usuario;  
     private Projeto projeto;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dataInclusao;
@@ -38,7 +41,6 @@ public class Arquivo implements Serializable {
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dataAtribuicao;
 
- 
     public Integer getId() {
         return id;
     }
@@ -69,7 +71,23 @@ public class Arquivo implements Serializable {
 
     public void setStatus(String status) {
         this.status = status;
-    }  
+    }
+
+    public List<Usuario> getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(List<Usuario> usuario) {
+        this.usuario = usuario;
+    }
+
+    public Projeto getProjeto() {
+        return projeto;
+    }
+
+    public void setProjeto(Projeto projeto) {
+        this.projeto = projeto;
+    }
 
     public Date getDataInclusao() {
         return dataInclusao;
@@ -95,12 +113,14 @@ public class Arquivo implements Serializable {
         this.dataAlteracao = dataAlteracao;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public Date getDataAtribuicao() {
+        return dataAtribuicao;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setDataAtribuicao(Date dataAtribuicao) {
+        this.dataAtribuicao = dataAtribuicao;
     }
 
+ 
+   
 }

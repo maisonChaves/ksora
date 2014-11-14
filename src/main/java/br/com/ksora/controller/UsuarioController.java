@@ -10,6 +10,7 @@ import br.com.ksora.enuns.Perfil;
 import br.com.ksora.objeto.Usuario;
 import br.com.ksora.utils.Sessao;
 import java.util.Date;
+import javax.inject.Inject;
 
 /**
  *
@@ -18,20 +19,18 @@ import java.util.Date;
 @Controller
 public class UsuarioController {
 
-    private final Result result;
-    private final DAO dao;
-    private final Sessao sessao;
-
-    public UsuarioController(Result result, DAO dao, Sessao sessao) {
-        this.result = result;
-        this.dao = dao;
-        this.sessao = sessao;
-    }
+    @Inject
+    private Result result;
+    @Inject
+    private DAO dao;
+    @Inject
+    private Sessao sessao;
 
     /**
      * Redireciona para a tela de cadastro.
      */
-    @Permissao(Perfil.ADMINISTRADOR)    
+//    @Permissao(Perfil.ADMINISTRADOR)    
+    @Public
     public void cadastro() {
     }
 
@@ -68,7 +67,7 @@ public class UsuarioController {
      * @param usuario
      */
     @Public
-    @Permissao(Perfil.ADMINISTRADOR)
+//    @Permissao(Perfil.ADMINISTRADOR)
     public void gravar(Usuario usuario) {
         usuario.setDataCadastro(new Date());
         dao.salvar(usuario);
@@ -129,7 +128,7 @@ public class UsuarioController {
         sessao.setUsuario(usuario);
         if (usuario != null) {
             result.redirectTo(IndexController.class).index();
-        } 
+        }
 
     }
 }

@@ -13,7 +13,7 @@
         <table id="tabela" class="" onblur="" style="text-align: center" width="50%" cellspacing="0">
             <thead>
                 <tr>            
-                    <th>ID</th>                                                                   
+                    <th>${sessao.administrador}</th>                                                                   
                     <th>Nome</th>     
                     <th>Data de Atribuição</th>     
                     <th>Última Alteração</th>     
